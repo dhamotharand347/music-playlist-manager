@@ -11,23 +11,31 @@ import jakarta.persistence.Table;
 @Table(name = "admin")
 public class Admin {
 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sl_no")
-	private int sl_no;
-
 	@Id
-	@Column(name = "admin_name")
-	private String admin_name;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "adminId")
+	private int adminId;
+
+	@Column(name = "adminName")
+	private String adminName;
 
 	@Column(name = "password")
 	private String password;
 
-	public String getAdmin_name() {
-		return admin_name;
+	public int getAdminId() {
+		return adminId;
 	}
 
-	public void setAdmin_name(String admin_name) {
-		this.admin_name = admin_name;
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
+	}
+
+	public String getAdminName() {
+		return adminName;
+	}
+
+	public void setAdminName(String adminName) {
+		this.adminName = adminName;
 	}
 
 	public String getPassword() {

@@ -8,45 +8,43 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "playlistsong")
+@Table(name = "playlist_song")
 public class PlaylistSong {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sl_no")
-	private int sl_no;
+	@Column(name = "playlistSongId")
+	private int playlistSongId;
 	
-	@Column(name = "playlist_id")
-	private int playlist_id;
+	@Column(name = "playlistId")
+	private int playlistId;
 
-	@Column(name = "song_no")
-	private int song_no;
+	@Column(name = "songId")
+	private int songId;
 
-	@Column(name = "song_order")
-	private int song_order;
-
-	public int getPlaylist_id() {
-		return playlist_id;
+	public int getPlaylistSongId() {
+		return playlistSongId;
 	}
 
-	public void setPlaylist_id(int playlist_id) {
-		this.playlist_id = playlist_id;
+	public void setPlaylistSongId(int playlistSongId) {
+		this.playlistSongId = playlistSongId;
 	}
 
-	public int getSong_no() {
-		return song_no;
+	public int getPlaylistId() {
+		return playlistId;
 	}
 
-	public void setSong_no(int song_no) {
-		this.song_no = song_no;
+	public void setPlaylistId(int playlistId) {
+		this.playlistId = playlistId;
 	}
 
-	public int getSong_order() {
-		return song_order;
+	public int getSongId() {
+		return songId;
 	}
 
-	public void setSong_order(int song_order) {
-		this.song_order = song_order;
+	public void setSongId(int songId) {
+		this.songId = songId;
 	}
+	
 	
 }

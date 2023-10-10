@@ -8,33 +8,43 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "liked_songs")
+@Table(name = "liked_song")
 public class LikedSongs {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sl_no")
-	private int sl_no;
+	@Column(name = "likedSongId")
+	private int likedSongId;
 
-	@Column(name = "song_no")
-	private int song_no;
+	@Column(name = "songId")
+	private int songId;
 
-	@Column(name = "username")
-	private String username;
+	@Column(name = "userId")
+	private int userId;
 
-	public int getSong_no() {
-		return song_no;
+	public int getLikedSongId() {
+		return likedSongId;
 	}
 
-	public void setSong_no(int song_no) {
-		this.song_no = song_no;
+	public void setLikedSongId(int likedSongId) {
+		this.likedSongId = likedSongId;
 	}
 
-	public String getUsername() {
-		return username;
+	public int getSongId() {
+		return songId;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setSongId(int songId) {
+		this.songId = songId;
 	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	
 }

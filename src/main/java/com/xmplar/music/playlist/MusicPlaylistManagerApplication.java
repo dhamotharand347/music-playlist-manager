@@ -9,7 +9,7 @@ public class MusicPlaylistManagerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MusicPlaylistManagerApplication.class, args);
 		
-		System.out.println("Model success");
+		System.out.println("Works successfully!");
 	}
 
 }

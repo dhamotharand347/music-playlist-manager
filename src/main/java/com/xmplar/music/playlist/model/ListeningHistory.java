@@ -13,28 +13,38 @@ public class ListeningHistory {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sl_no")
-	private int sl_no;
+	@Column(name = "listeningHistoryId")
+	private int listeningHistoryId;
 	
-	@Column(name = "username")
-	private String username;
+	@Column(name = "userId")
+	private int userId;
 	
-	@Column(name = "song_no")
-	private int song_no;
+	@Column(name = "songId")
+	private int songId;
 
-	public String getUsername() {
-		return username;
+	public int getListeningHistoryId() {
+		return listeningHistoryId;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setListeningHistoryId(int listeningHistoryId) {
+		this.listeningHistoryId = listeningHistoryId;
 	}
 
-	public int getSong_no() {
-		return song_no;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setSong_no(int song_no) {
-		this.song_no = song_no;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
+
+	public int getSongId() {
+		return songId;
+	}
+
+	public void setSongId(int songId) {
+		this.songId = songId;
+	}
+
+	
 }

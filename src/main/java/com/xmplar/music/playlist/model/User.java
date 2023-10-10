@@ -11,48 +11,23 @@ import jakarta.persistence.Table;
 @Table(name = "music_user")
 public class User {
 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sl_no")
-	private int sl_no;
-
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "userId")
+	private int userId;
+
 	@Column(name = "username")
 	private String username;
 
 	@Column(name = "password")
 	private String password;
-	
-	@Column(name = "email")
-	private String email;
-	
-	@Column(name = "prefered_lang")
-	private String prefered_lang;
-	
-	@Column(name = "prefered_genre")
-	private String prefered_genre;
 
-	public String getEmail() {
-		return email;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPrefered_lang() {
-		return prefered_lang;
-	}
-
-	public void setPrefered_lang(String prefered_lang) {
-		this.prefered_lang = prefered_lang;
-	}
-
-	public String getPrefered_genre() {
-		return prefered_genre;
-	}
-
-	public void setPrefered_genre(String prefered_genre) {
-		this.prefered_genre = prefered_genre;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getUsername() {
