@@ -39,7 +39,8 @@ To get started with GrooveMaster, follow these steps:
 Clone this repository:
 
 ```bash
-git clone https://github.com/dhamotharand347/music-playlist-manager.git ```
+git clone https://github.com/dhamotharand347/music-playlist-manager.git 
+```
 
 ## Usage
 
