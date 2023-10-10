@@ -41,3 +41,27 @@ Clone this repository:
 
 ```bash
 git clone https://github.com/dhamotharand347/music-playlist-manager.git
+
+## Usage
+
+To use the project, follow these steps:
+
+1. Open this project in Spring Tool Suite or your preferred Java development environment.
+2. Start the application by running the main application class.
+3. Log in or register, and start creating and managing your playlists!
+
+## Contributing
+
+Join us in shaping music playlist management – your contributions set the rhythm for innovation!
+
+If you'd like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your forked repository.
+5. Submit a pull request to our repository, and we'll review it.
+
+Thank you for choosing Music Playlist Manager to organize your music playlists. We're excited to have you on board, and we hope you enjoy using our console-based music playlist manager. If you have any questions, suggestions, or feedback, please don't hesitate to reach out. Let's make managing your music playlists a breeze with Music Playlist Manager!
+
+
