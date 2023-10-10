@@ -1,7 +1,6 @@
 package com.xmplar.music.playlist.dto;
 
 import com.google.gson.annotations.Expose;
-import com.xmplar.training.library.dto.APIError;
 import com.google.gson.annotations.SerializedName;
 
 public class APIEndpointResponse {
@@ -42,8 +41,7 @@ public class APIEndpointResponse {
 		return apiError;
 	}
 
-	public void setAPIError(APIError apiError) {
+	public void setApiError(APIError apiError) {
 		this.apiError = apiError;
-	}
-	
+	}	
 }

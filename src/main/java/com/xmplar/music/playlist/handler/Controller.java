@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xmplar.music.playlist.dto.APIEndpointResponse;
-import com.xmplar.music.playlist.services.RequestBO;
+import com.xmplar.music.playlist.services.APIRequestBO;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpServletRequest;
 public class Controller {
 	
 	@Autowired
-	private RequestBO response;
+	private APIRequestBO response;
 
 	@PostMapping("/api/music")
 	public ResponseEntity<APIEndpointResponse> request(HttpServletRequest httpRequest,
