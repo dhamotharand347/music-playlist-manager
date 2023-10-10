@@ -12,7 +12,6 @@ This project is a console-based music playlist manager that leverages the power 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
@@ -40,7 +39,7 @@ To get started with GrooveMaster, follow these steps:
 Clone this repository:
 
 ```bash
-git clone https://github.com/dhamotharand347/music-playlist-manager.git
+git clone https://github.com/dhamotharand347/music-playlist-manager.git ```
 
 ## Usage
 
