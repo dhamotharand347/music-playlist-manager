@@ -16,14 +16,14 @@ import com.xmplar.music.playlist.util.TransactionIDValues;
  * send back the response
  */
 @Service
-public class APIRequestBO extends BaseAPIResponseHandler{
-	
+public class APIRequestBO extends BaseAPIResponseHandler {
+
 	@Autowired
 	private UserBO userBO;
-	
+
 	@Autowired
 	private AdminBO adminBO;
-	
+
 	/**
 	 * Handles the delegation request from the UserAPI. Will kick back to the API
 	 * caller if the response fails basic validation
@@ -36,7 +36,7 @@ public class APIRequestBO extends BaseAPIResponseHandler{
 
 		return generateAPIResponse(apiRequest);
 	}
-	
+
 	/**
 	 * Converts the API Request body into an APIRequest object
 	 * 
@@ -60,6 +60,18 @@ public class APIRequestBO extends BaseAPIResponseHandler{
 		case TransactionIDValues.ADMIN_REGISTER:
 			return adminBO.adminRegister(apiRequest);
 
+		case TransactionIDValues.ADMIN_LOGIN:
+			return adminBO.adminLogin(apiRequest);
+
+		case TransactionIDValues.ADD_SONG:
+			return adminBO.addSong(apiRequest);
+
+		case TransactionIDValues.EDIT_SONG:
+			return adminBO.editSong(apiRequest);
+		
+		case TransactionIDValues.REMOVE_SONG:
+			return adminBO.removeSong(apiRequest);
+		
 		default:
 			return generateInvalidAPIEndpointErrorResponse(apiRequest);
 		}
