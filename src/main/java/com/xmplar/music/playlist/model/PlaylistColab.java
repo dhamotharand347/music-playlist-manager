@@ -10,41 +10,40 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "playlist_colab")
 public class PlaylistColab {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "playlistColabId")
-	private int playlistColabId;
-	
-	@Column(name = "playlistId")
-	private int playlistId;
+	@Column(name = "playlist_colab_id")
+	private int playlist_colab_id;
 
-	@Column(name = "userId")
-	private int userId;
+	@Column(name = "playlist_id")
+	private int playlist_id;
 
-	public int getPlaylistColabId() {
-		return playlistColabId;
+	@Column(name = "user_id")
+	private int user_id;
+
+	public int getPlaylist_colab_id() {
+		return playlist_colab_id;
 	}
 
-	public void setPlaylistColabId(int playlistColabId) {
-		this.playlistColabId = playlistColabId;
+	public void setPlaylist_colab_id(int playlist_colab_id) {
+		this.playlist_colab_id = playlist_colab_id;
 	}
 
-	public int getPlaylistId() {
-		return playlistId;
+	public int getPlaylist_id() {
+		return playlist_id;
 	}
 
-	public void setPlaylistId(int playlistId) {
-		this.playlistId = playlistId;
+	public void setPlaylist_id(int playlist_id) {
+		this.playlist_id = playlist_id;
 	}
 
-	public int getUserId() {
-		return userId;
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
-	
 }

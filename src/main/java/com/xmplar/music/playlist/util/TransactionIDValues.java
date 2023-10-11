@@ -30,6 +30,8 @@ public class TransactionIDValues {
 	
 	public static final String VIEW_PLAYLIST = "VIEW_PLAYLIST";
 	
+	public static final String REMOVE_PLAYLIST_SONG = "REMOVE_PLAYLIST_SONG";
+	
 	public static final String SEARCH_SONG = "SEARCH_SONG";
 	
 	public static final String PLAY_SONG = "PLAY_SONG";

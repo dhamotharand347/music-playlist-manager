@@ -16,6 +16,8 @@ import com.google.gson.JsonElement;
  */
 public class GsonUtils {
 	
+	 private static final Gson gsson = new Gson();
+	
 	private static final Gson gson = new GsonBuilder()
 			.serializeNulls()
 			.setDateFormat("MM/dd/yyyy HH:mm:ss.SSS z")
@@ -84,11 +86,16 @@ public class GsonUtils {
 	 * @param classType - the type of object we're converting into
 	 * @return
 	 */
-	public static <T> Object serializeObjectFromMap(Map<String, Object> objectAttributeMap, Type classType) {
-		
-		JsonElement jsonElement = gson.toJsonTree(objectAttributeMap);
-		return gson.fromJson(jsonElement, classType);
-	}
+//	public static <T> Object serializeObjectFromMap(Map<String, Object> objectAttributeMap, Type classType) {
+//		
+//		JsonElement jsonElement = gson.toJsonTree(objectAttributeMap);
+//		return gson.fromJson(jsonElement, classType);
+//	}
+	
+	public static <T> T serializeObjectFromMap(Map<String, Object> map, Class<T> clazz) {
+        String json = gsson.toJson(map);
+        return gsson.fromJson(json, clazz);
+    }
 
 	/**
 	 * Converts a reader into an Object (classType)

@@ -13,29 +13,29 @@ public class Admin {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "adminId")
-	private int adminId;
+	@Column(name = "admin_id")
+	private int admin_id;
 
-	@Column(name = "adminName")
-	private String adminName;
+	@Column(name = "adminname")
+	private String adminname;
 
 	@Column(name = "password")
 	private String password;
 
-	public int getAdminId() {
-		return adminId;
+	public int getAdmin_id() {
+		return admin_id;
 	}
 
-	public void setAdminId(int adminId) {
-		this.adminId = adminId;
+	public void setAdmin_id(int admin_id) {
+		this.admin_id = admin_id;
 	}
 
-	public String getAdminName() {
-		return adminName;
+	public String getAdminname() {
+		return adminname;
 	}
 
-	public void setAdminName(String adminName) {
-		this.adminName = adminName;
+	public void setAdminname(String adminname) {
+		this.adminname = adminname;
 	}
 
 	public String getPassword() {

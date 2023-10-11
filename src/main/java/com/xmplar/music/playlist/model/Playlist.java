@@ -10,54 +10,54 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "playlist")
 public class Playlist {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "playlistId")
-	private int playlistId;
+	@Column(name = "playlist_id")
+	private int playlist_id;
 
-	@Column(name = "userId")
-	private int userId;
+	@Column(name = "user_id")
+	private int user_id;
 
-	@Column(name = "playlistName")
-	private String playlistName;
-	
-	@Column(name = "totalDuration")
-	private String totalDuration;
-	
+	@Column(name = "playlist_name")
+	private String playlist_name;
+
+	@Column(name = "total_duration")
+	private String total_duration;
+
 	@Column(name = "visibility")
 	private String visibility;
 
-	public int getPlaylistId() {
-		return playlistId;
+	public int getPlaylist_id() {
+		return playlist_id;
 	}
 
-	public void setPlaylistId(int playlistId) {
-		this.playlistId = playlistId;
+	public void setPlaylist_id(int playlist_id) {
+		this.playlist_id = playlist_id;
 	}
 
-	public int getUserId() {
-		return userId;
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
-	public String getPlaylistName() {
-		return playlistName;
+	public String getPlaylist_name() {
+		return playlist_name;
 	}
 
-	public void setPlaylistName(String playlistName) {
-		this.playlistName = playlistName;
+	public void setPlaylist_name(String playlist_name) {
+		this.playlist_name = playlist_name;
 	}
 
-	public String getTotalDuration() {
-		return totalDuration;
+	public String getTotal_duration() {
+		return total_duration;
 	}
 
-	public void setTotalDuration(String totalDuration) {
-		this.totalDuration = totalDuration;
+	public void setTotal_duration(String total_duration) {
+		this.total_duration = total_duration;
 	}
 
 	public String getVisibility() {

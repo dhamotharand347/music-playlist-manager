@@ -9,15 +9,14 @@ import org.springframework.stereotype.Service;
 import com.xmplar.music.playlist.dto.APIEndpointResponse;
 import com.xmplar.music.playlist.dto.APIRequest;
 import com.xmplar.music.playlist.util.GsonUtils;
-
-import jakarta.servlet.http.HttpServletRequest;
+import com.xmplar.music.playlist.util.TransactionIDValues;
 
 /**
  * Acts as the delegate for the UserAPIEndpoint. Will handle the request and
  * send back the response
  */
 @Service
-public class APIRequestBO {
+public class APIRequestBO extends BaseAPIResponseHandler{
 	
 	@Autowired
 	private UserBO userBO;
@@ -32,8 +31,7 @@ public class APIRequestBO {
 	 * @param requestBody - the pure String version of the request body
 	 */
 
-	public ResponseEntity<APIEndpointResponse> handleAPIRequest(HttpServletRequest httpRequest,
-			Map<String, Object> requestBody) {
+	public ResponseEntity<APIEndpointResponse> handleAPIRequest(Map<String, Object> requestBody) {
 		APIRequest apiRequest = convertHttpRequestBodyMapToAPIRequest(requestBody);
 
 		return generateAPIResponse(apiRequest);
@@ -57,15 +55,14 @@ public class APIRequestBO {
 	 */
 	private ResponseEntity<APIEndpointResponse> generateAPIResponse(APIRequest apiRequest) {
 
-		switch (apiRequest.getContext().getTransactionId()) {
+		switch (apiRequest.getApiContext().getTransactionId()) {
 
-//		case TransactionIDValues.GET_USER:
-//			return userBO.getUser(apiRequest);
+		case TransactionIDValues.ADMIN_REGISTER:
+			return adminBO.adminRegister(apiRequest);
 
-//		default:
-//			return generateInvalidAPIEndpointErrorResponse(apiRequest);
+		default:
+			return generateInvalidAPIEndpointErrorResponse(apiRequest);
 		}
-		return null;
 	}
 
 }

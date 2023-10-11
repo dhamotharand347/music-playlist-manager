@@ -10,47 +10,47 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "song")
 public class Song {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "songId")
-	private int songId;
-	
-	@Column(name = "songName")
-	private String songName;
-	
+	@Column(name = "song_id")
+	private int song_id;
+
+	@Column(name = "song_name")
+	private String song_name;
+
 	@Column(name = "singer")
 	private String singer;
-	
-	@Column(name = "musicDirector")
-	private String musicDirector;
-	
+
+	@Column(name = "music_director")
+	private String music_director;
+
 	@Column(name = "genre")
 	private String genre;
-	
-	@Column(name = "yearOfRelease")
-	private String yearOfRelease;
-	
+
+	@Column(name = "year_of_release")
+	private String year_of_release;
+
 	@Column(name = "duration")
 	private String duration;
-	
+
 	@Column(name = "language")
 	private String language;
 
-	public int getSongId() {
-		return songId;
+	public int getSong_id() {
+		return song_id;
 	}
 
-	public void setSongId(int songId) {
-		this.songId = songId;
+	public void setSong_id(int song_id) {
+		this.song_id = song_id;
 	}
 
-	public String getSongName() {
-		return songName;
+	public String getSong_name() {
+		return song_name;
 	}
 
-	public void setSongName(String songName) {
-		this.songName = songName;
+	public void setSong_name(String song_name) {
+		this.song_name = song_name;
 	}
 
 	public String getSinger() {
@@ -61,12 +61,12 @@ public class Song {
 		this.singer = singer;
 	}
 
-	public String getMusicDirector() {
-		return musicDirector;
+	public String getMusic_director() {
+		return music_director;
 	}
 
-	public void setMusicDirector(String musicDirector) {
-		this.musicDirector = musicDirector;
+	public void setMusic_director(String music_director) {
+		this.music_director = music_director;
 	}
 
 	public String getGenre() {
@@ -77,12 +77,12 @@ public class Song {
 		this.genre = genre;
 	}
 
-	public String getYearOfRelease() {
-		return yearOfRelease;
+	public String getYear_of_release() {
+		return year_of_release;
 	}
 
-	public void setYearOfRelease(String yearOfRelease) {
-		this.yearOfRelease = yearOfRelease;
+	public void setYear_of_release(String year_of_release) {
+		this.year_of_release = year_of_release;
 	}
 
 	public String getDuration() {
@@ -101,5 +101,4 @@ public class Song {
 		this.language = language;
 	}
 
-	
 }

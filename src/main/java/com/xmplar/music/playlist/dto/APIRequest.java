@@ -9,7 +9,7 @@ public class APIRequest {
 
 	@Expose 
 	@SerializedName("apiContext") 
-	private APIContext context;
+	private APIContext apiContext;
 
 	@Expose 
 	@SerializedName("apiMandatoryParams")
@@ -22,17 +22,17 @@ public class APIRequest {
 	public APIRequest() {}
 	
 	public APIRequest(APIContext context, Map<String, Object> mandatoryParams, Map<String, Object> additionalParams) {
-		this.context = context;
+		this.apiContext = context;
 		this.mandatoryParams = mandatoryParams;
 		this.additionalParams = additionalParams;
 	}
 
-	public APIContext getContext() {
-		return context;
+	public APIContext getApiContext() {
+		return apiContext;
 	}
 
-	public void setContext(APIContext context) {
-		this.context = context;
+	public void setApiContext(APIContext context) {
+		this.apiContext = context;
 	}
 
 	public Map<String, Object> getMandatoryParams() {

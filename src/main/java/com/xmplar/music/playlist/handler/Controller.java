@@ -12,18 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.xmplar.music.playlist.dto.APIEndpointResponse;
 import com.xmplar.music.playlist.services.APIRequestBO;
 
-import jakarta.servlet.http.HttpServletRequest;
-
 @Component
 @RestController
 public class Controller {
-	
+
 	@Autowired
 	private APIRequestBO response;
 
 	@PostMapping("/api/music")
-	public ResponseEntity<APIEndpointResponse> request(HttpServletRequest httpRequest,
-			@RequestBody Map<String, Object> requestBody) {
-		return response.handleAPIRequest(httpRequest, requestBody);
+	public ResponseEntity<APIEndpointResponse> request(@RequestBody Map<String, Object> requestBody) {
+		return response.handleAPIRequest(requestBody);
 	}
 }
