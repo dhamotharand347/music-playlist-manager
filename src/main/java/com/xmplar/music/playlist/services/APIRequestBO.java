@@ -71,6 +71,13 @@ public class APIRequestBO extends BaseAPIResponseHandler {
 		
 		case TransactionIDValues.REMOVE_SONG:
 			return adminBO.removeSong(apiRequest);
+			
+		case TransactionIDValues.USER_REGISTER:
+			return userBO.userRegister(apiRequest);
+		
+		case TransactionIDValues.USER_LOGIN:
+			return userBO.userLogin(apiRequest);
+		
 		
 		default:
 			return generateInvalidAPIEndpointErrorResponse(apiRequest);

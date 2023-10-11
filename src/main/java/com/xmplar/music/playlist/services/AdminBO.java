@@ -44,7 +44,7 @@ public class AdminBO extends BaseBO {
 
 		// Client side validation
 		/*
-		 * 1) Username or password empty
+		 * 1) Admin name or password empty
 		 */
 		Admin admin = (Admin) GsonUtils.serializeObjectFromMap(apiRequest.getMandatoryParams(), Admin.class);
 
