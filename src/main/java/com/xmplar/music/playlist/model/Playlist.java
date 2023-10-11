@@ -14,50 +14,50 @@ public class Playlist {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "playlist_id")
-	private int playlist_id;
+	private int playlistId;
 
 	@Column(name = "user_id")
-	private int user_id;
+	private int userId;
 
 	@Column(name = "playlist_name")
-	private String playlist_name;
+	private String playlistName;
 
 	@Column(name = "total_duration")
-	private String total_duration;
+	private String totalDuration;
 
 	@Column(name = "visibility")
 	private String visibility;
 
-	public int getPlaylist_id() {
-		return playlist_id;
+	public int getPlaylistId() {
+		return playlistId;
 	}
 
-	public void setPlaylist_id(int playlist_id) {
-		this.playlist_id = playlist_id;
+	public void setPlaylistId(int playlistId) {
+		this.playlistId = playlistId;
 	}
 
-	public int getUser_id() {
-		return user_id;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
-	public String getPlaylist_name() {
-		return playlist_name;
+	public String getPlaylistName() {
+		return playlistName;
 	}
 
-	public void setPlaylist_name(String playlist_name) {
-		this.playlist_name = playlist_name;
+	public void setPlaylistName(String playlistName) {
+		this.playlistName = playlistName;
 	}
 
-	public String getTotal_duration() {
-		return total_duration;
+	public String getTotalDuration() {
+		return totalDuration;
 	}
 
-	public void setTotal_duration(String total_duration) {
-		this.total_duration = total_duration;
+	public void setTotalDuration(String totalDuration) {
+		this.totalDuration = totalDuration;
 	}
 
 	public String getVisibility() {
@@ -67,5 +67,4 @@ public class Playlist {
 	public void setVisibility(String visibility) {
 		this.visibility = visibility;
 	}
-
 }

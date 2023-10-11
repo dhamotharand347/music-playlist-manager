@@ -10,5 +10,7 @@ public interface AdminRepository extends JpaRepository<Admin, Long> {
 	
 	@Query(value = "SELECT password FROM admin where adminname = :adminname", nativeQuery = true)
 	String findPassword(@Param("adminname")String adminname);
+	
+	boolean existsByAdminname(String adminname);
 
 }

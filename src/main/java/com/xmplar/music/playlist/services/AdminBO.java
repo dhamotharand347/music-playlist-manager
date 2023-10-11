@@ -29,8 +29,12 @@ public class AdminBO extends BaseBO {
 		// To do Validation
 		Admin admin = (Admin) GsonUtils.serializeObjectFromMap(apiRequest.getMandatoryParams(), Admin.class);
 
-		adminRepository.save(admin);
-		return buildValidResponse(apiRequest, "Admin successfully registered!");
+		if (adminRepository.existsByAdminname(admin.getAdminname())) {
+			return buildErrorResponse(apiRequest, "Admin name already exists", "Registration failed");
+		} else {
+			adminRepository.save(admin);
+			return buildValidResponse(apiRequest, "Admin successfully registered!");
+		}
 	}
 
 	/**
@@ -38,17 +42,25 @@ public class AdminBO extends BaseBO {
 	 */
 	public ResponseEntity<APIEndpointResponse> adminLogin(APIRequest apiRequest) {
 
-		// To do validation
+		// Client side validation
+		/*
+		 * 1) Username or password empty
+		 */
 		Admin admin = (Admin) GsonUtils.serializeObjectFromMap(apiRequest.getMandatoryParams(), Admin.class);
 
 		String adminname = admin.getAdminname();
 		String password = admin.getPassword();
 
-		if (password.equals(adminRepository.findPassword(adminname))) {
-			return buildValidResponse(apiRequest, "Admin logged in successfully!");
-		}
+		if (adminRepository.existsByAdminname(adminname)) {
+			if (password.equals(adminRepository.findPassword(adminname))) {
+				return buildValidResponse(apiRequest, "Admin logged in successfully!");
+			} else {
+				return buildErrorResponse(apiRequest, "Password does not match", "Log in failed");
+			}
 
-		return buildValidResponse(apiRequest, "Admin log in failed!");
+		} else {
+			return buildErrorResponse(apiRequest, "Admin name does not exists", "Log in failed");
+		}
 	}
 
 	/**
@@ -57,10 +69,17 @@ public class AdminBO extends BaseBO {
 	public ResponseEntity<APIEndpointResponse> addSong(APIRequest apiRequest) {
 
 		// To do validation
+		/*
+		 * 1) Valid song attributes 2) Attribute cannot be empty
+		 */
 		Song song = (Song) GsonUtils.serializeObjectFromMap(apiRequest.getMandatoryParams(), Song.class);
 
-		songRepository.save(song);
-		return buildValidResponse(apiRequest, "Song added successfully!");
+		if (songRepository.existsBySongName(song.getSongName())) {
+			return buildErrorResponse(apiRequest, "Song name already exists", "Song addition failed");
+		} else {
+			songRepository.save(song);
+			return buildValidResponse(apiRequest, "Song added successfully!");
+		}
 	}
 
 	/**
@@ -68,20 +87,27 @@ public class AdminBO extends BaseBO {
 	 */
 	public ResponseEntity<APIEndpointResponse> editSong(APIRequest apiRequest) {
 		// To do validation
+		/*
+		 * 1) Missing song name 2) Missing edit attribute
+		 */
 		Song song = (Song) GsonUtils.serializeObjectFromMap(apiRequest.getMandatoryParams(), Song.class);
 
-		String song_name = song.getSong_name();
+		String songName = song.getSongName();
 		String singer = song.getSinger();
-		String music_director = song.getMusic_director();
+		String musicDirector = song.getMusicDirector();
 		String genre = song.getGenre();
 		String language = song.getLanguage();
 
-		Song existingSong = songRepository.findSongBySong_name(song_name);
+		if (!songRepository.existsBySongName(song.getSongName())) {
+			return buildErrorResponse(apiRequest, "Song does not found", "Song attribute updation failed");
+		}
+
+		Song existingSong = songRepository.findSongBySongName(songName);
 
 		if (singer != null) {
 			existingSong.setSinger(singer);
-		} else if (music_director != null) {
-			existingSong.setMusic_director(music_director);
+		} else if (musicDirector != null) {
+			existingSong.setMusicDirector(musicDirector);
 		} else if (genre != null) {
 			existingSong.setGenre(genre);
 		} else if (language != null) {
@@ -97,16 +123,20 @@ public class AdminBO extends BaseBO {
 	 * To remove existing song in the database
 	 */
 	public ResponseEntity<APIEndpointResponse> removeSong(APIRequest apiRequest) {
-		// To do validation\
+		// To do validation
 		Song song = (Song) GsonUtils.serializeObjectFromMap(apiRequest.getMandatoryParams(), Song.class);
+		
+		if(!songRepository.existsBySongName(song.getSongName())) {
+			return buildErrorResponse(apiRequest, "Song does not found", "Song removal failed");
+		}
+		
+		String song_name = song.getSongName();
 
-		String song_name = song.getSong_name();
-
-		Song existingSong = songRepository.findSongBySong_name(song_name);
+		Song existingSong = songRepository.findSongBySongName(song_name);
 
 		try {
-		songRepository.deleteBySongId(existingSong.getSong_id());
-		} catch(Exception e) {
+			songRepository.deleteBySongId(existingSong.getSongId());
+		} catch (Exception e) {
 			return buildValidResponse(apiRequest, "Song was removed successfully!");
 		}
 		return buildValidResponse(apiRequest, "Song was removed successfully!");

@@ -9,9 +9,10 @@ import com.xmplar.music.playlist.model.Song;
 public interface SongRepository extends JpaRepository<Song, Long> {
 
 	@Query(value="select * from song where song_name = :song_name",nativeQuery = true)
-	Song findSongBySong_name(@Param("song_name") String song_name);
+	Song findSongBySongName(@Param("song_name") String songName);
 	
 	@Query(value = "DELETE FROM song WHERE song_id = :song_id", nativeQuery = true)
-	void deleteBySongId(@Param("song_id") int song_id);
+	void deleteBySongId(@Param("song_id") int songId);
 
+	boolean existsBySongName(String songName);
 }

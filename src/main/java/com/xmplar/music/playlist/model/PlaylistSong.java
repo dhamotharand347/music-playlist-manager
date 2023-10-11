@@ -14,36 +14,35 @@ public class PlaylistSong {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "playlist_song_id")
-	private int playlist_song_id;
+	private int playlistSongId;
 
 	@Column(name = "playlist_id")
-	private int playlist_id;
+	private int playlistId;
 
 	@Column(name = "song_id")
-	private int song_id;
+	private int songId;
 
-	public int getPlaylist_song_id() {
-		return playlist_song_id;
+	public int getPlaylistSongId() {
+		return playlistSongId;
 	}
 
-	public void setPlaylist_song_id(int playlist_song_id) {
-		this.playlist_song_id = playlist_song_id;
+	public void setPlaylistSongId(int playlistSongId) {
+		this.playlistSongId = playlistSongId;
 	}
 
-	public int getPlaylist_id() {
-		return playlist_id;
+	public int getPlaylistId() {
+		return playlistId;
 	}
 
-	public void setPlaylist_id(int playlist_id) {
-		this.playlist_id = playlist_id;
+	public void setPlaylistId(int playlistId) {
+		this.playlistId = playlistId;
 	}
 
-	public int getSong_id() {
-		return song_id;
+	public int getSongId() {
+		return songId;
 	}
 
-	public void setSong_id(int song_id) {
-		this.song_id = song_id;
+	public void setSongId(int songId) {
+		this.songId = songId;
 	}
-
 }

@@ -14,36 +14,36 @@ public class LikedSongs {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "liked_song_id")
-	private int liked_song_id;
+	private int likedSongId;
 
 	@Column(name = "song_id")
-	private int song_id;
+	private int songId;
 
 	@Column(name = "user_id")
-	private int user_id;
+	private int userId;
 
-	public int getLiked_song_id() {
-		return liked_song_id;
+	public int getLikedSongId() {
+		return likedSongId;
 	}
 
-	public void setLiked_song_id(int liked_song_id) {
-		this.liked_song_id = liked_song_id;
+	public void setLikedSongId(int likedSongId) {
+		this.likedSongId = likedSongId;
 	}
 
-	public int getSong_id() {
-		return song_id;
+	public int getSongId() {
+		return songId;
 	}
 
-	public void setSong_id(int song_id) {
-		this.song_id = song_id;
+	public void setSongId(int songId) {
+		this.songId = songId;
 	}
 
-	public int getUser_id() {
-		return user_id;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 }
