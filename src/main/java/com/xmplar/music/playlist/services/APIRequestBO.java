@@ -83,6 +83,9 @@ public class APIRequestBO extends BaseAPIResponseHandler {
 			
 		case TransactionIDValues.ADD_TO_PLAYLIST:
 			return userBO.addToPlaylist(apiRequest);
+			
+		case TransactionIDValues.EDIT_PLAYLIST:
+			return userBO.editPlaylist(apiRequest);
 		
 		default:
 			return generateInvalidAPIEndpointErrorResponse(apiRequest);

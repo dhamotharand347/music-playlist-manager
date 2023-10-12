@@ -90,19 +90,23 @@ public class AdminBO extends BaseBO {
 		/*
 		 * 1) Missing song name 2) Missing edit attribute
 		 */
-		Song song = (Song) GsonUtils.serializeObjectFromMap(apiRequest.getMandatoryParams(), Song.class);
+		Song song = GsonUtils.serializeObjectFromMap(apiRequest.getMandatoryParams(), Song.class);
+		Song songAdd = GsonUtils.serializeObjectFromMap(apiRequest.getAdditionalParams(), Song.class);
 
-		String songName = song.getSongName();
-		String singer = song.getSinger();
-		String musicDirector = song.getMusicDirector();
-		String genre = song.getGenre();
-		String language = song.getLanguage();
+		String songName = songAdd.getSongName();
+		String singer = songAdd.getSinger();
+		String musicDirector = songAdd.getMusicDirector();
+		String genre = songAdd.getGenre();
+		String language = songAdd.getLanguage();
 
 		if (!songRepository.existsBySongName(song.getSongName())) {
 			return buildErrorResponse(apiRequest, "Song does not found", "Song attribute updation failed");
 		}
+		if (songRepository.existsBySongName(songAdd.getSongName())) {
+			return buildErrorResponse(apiRequest, "Song name already exists", "Song attribute updation failed");
+		}
 
-		Song existingSong = songRepository.findSongBySongName(songName);
+		Song existingSong = songRepository.findSongBySongName(song.getSongName());
 
 		if (singer != null) {
 			existingSong.setSinger(singer);
@@ -112,6 +116,8 @@ public class AdminBO extends BaseBO {
 			existingSong.setGenre(genre);
 		} else if (language != null) {
 			existingSong.setLanguage(language);
+		} else {
+			existingSong.setSongName(songName);
 		}
 
 		songRepository.save(existingSong);
@@ -125,11 +131,11 @@ public class AdminBO extends BaseBO {
 	public ResponseEntity<APIEndpointResponse> removeSong(APIRequest apiRequest) {
 		// To do validation
 		Song song = (Song) GsonUtils.serializeObjectFromMap(apiRequest.getMandatoryParams(), Song.class);
-		
-		if(!songRepository.existsBySongName(song.getSongName())) {
+
+		if (!songRepository.existsBySongName(song.getSongName())) {
 			return buildErrorResponse(apiRequest, "Song does not found", "Song removal failed");
 		}
-		
+
 		String song_name = song.getSongName();
 
 		Song existingSong = songRepository.findSongBySongName(song_name);

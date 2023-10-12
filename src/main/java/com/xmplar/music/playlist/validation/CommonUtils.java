@@ -48,4 +48,55 @@ public class CommonUtils {
 
         return errors;
     }
+	
+	public static String calculateTotalDuration(String existingDuration, String newSongDuration) {
+	    // Split the existing and new durations into hours, minutes, and seconds
+	    String[] existingParts = existingDuration.split(":");
+	    String[] newSongParts = newSongDuration.split(":");
+
+	    int existingHours = 0;
+	    int existingMinutes = 0;
+	    int existingSeconds = 0;
+
+	    if (existingParts.length == 2) {
+	        // Handle "MM:SS" format
+	        existingMinutes = Integer.parseInt(existingParts[0]);
+	        existingSeconds = Integer.parseInt(existingParts[1]);
+	    } else if (existingParts.length == 3) {
+	        // Handle "HH:MM:SS" format
+	        existingHours = Integer.parseInt(existingParts[0]);
+	        existingMinutes = Integer.parseInt(existingParts[1]);
+	        existingSeconds = Integer.parseInt(existingParts[2]);
+	    } else {
+	        // Handle invalid format gracefully or return an error
+	        return "Invalid Duration Format";
+	    }
+
+	    int newSongMinutes = Integer.parseInt(newSongParts[0]);
+	    int newSongSeconds = Integer.parseInt(newSongParts[1]);
+
+	    // Calculate the total hours, minutes, and seconds
+	    int totalHours = existingHours;
+	    int totalMinutes = existingMinutes + newSongMinutes;
+	    int totalSeconds = existingSeconds + newSongSeconds;
+
+	    // Handle the case where seconds or minutes exceed 59
+	    if (totalSeconds >= 60) {
+	        totalMinutes += totalSeconds / 60;
+	        totalSeconds %= 60;
+	    }
+
+	    if (totalMinutes >= 60) {
+	        totalHours += totalMinutes / 60;
+	        totalMinutes %= 60;
+	    }
+
+	    // Format the total duration based on the presence of hours
+	    if (totalHours > 0) {
+	        return String.format("%02d:%02d:%02d", totalHours, totalMinutes, totalSeconds);
+	    } else {
+	        return String.format("%02d:%02d", totalMinutes, totalSeconds);
+	    }
+	}
+
 }
