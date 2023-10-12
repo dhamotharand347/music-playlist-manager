@@ -15,4 +15,8 @@ public interface SongRepository extends JpaRepository<Song, Long> {
 	void deleteBySongId(@Param("song_id") int songId);
 
 	boolean existsBySongName(String songName);
+	
+	@Query(value = "select song_id from song where song_name = :song_name", nativeQuery = true)
+	int findSongIdBySongName(@Param("song_name") String song_name);
+
 }

@@ -12,5 +12,11 @@ public interface UserRepository extends JpaRepository<User,Long>{
 	String findPassword(@Param("username")String username);
 	
 	boolean existsByUsername(String username);
+	
+	@Query(value = "select user_id from music_user where username = :username", nativeQuery = true)
+	int findUserIdByUsername(@Param("username") String username);
+	
+	@Query(value = "select * from music_user where username = :username", nativeQuery = true)
+	User findUserByUsername(@Param("username") String username);
 
 }

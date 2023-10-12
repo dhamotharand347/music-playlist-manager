@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,8 +18,9 @@ public class Playlist {
 	@Column(name = "playlist_id")
 	private int playlistId;
 
-	@Column(name = "user_id")
-	private int userId;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	@Column(name = "playlist_name")
 	private String playlistName;
@@ -27,7 +30,7 @@ public class Playlist {
 
 	@Column(name = "visibility")
 	private String visibility;
-
+	
 	public int getPlaylistId() {
 		return playlistId;
 	}
@@ -36,12 +39,12 @@ public class Playlist {
 		this.playlistId = playlistId;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getPlaylistName() {
@@ -66,5 +69,10 @@ public class Playlist {
 
 	public void setVisibility(String visibility) {
 		this.visibility = visibility;
+	}
+
+	@Override
+	public String toString() {
+		return "Playlist [user=" + user.getUsername() + "]";
 	}
 }

@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,11 +18,13 @@ public class PlaylistSong {
 	@Column(name = "playlist_song_id")
 	private int playlistSongId;
 
-	@Column(name = "playlist_id")
-	private int playlistId;
+	@ManyToOne
+	@JoinColumn(name = "playlist_id")
+	private Playlist playlist;
 
-	@Column(name = "song_id")
-	private int songId;
+	@ManyToOne
+	@JoinColumn(name = "song_id")
+	private Song song;
 
 	public int getPlaylistSongId() {
 		return playlistSongId;
@@ -30,19 +34,19 @@ public class PlaylistSong {
 		this.playlistSongId = playlistSongId;
 	}
 
-	public int getPlaylistId() {
-		return playlistId;
+	public Playlist getPlaylist() {
+		return playlist;
 	}
 
-	public void setPlaylistId(int playlistId) {
-		this.playlistId = playlistId;
+	public void setPlaylist(Playlist playlist) {
+		this.playlist = playlist;
 	}
 
-	public int getSongId() {
-		return songId;
+	public Song getSong() {
+		return song;
 	}
 
-	public void setSongId(int songId) {
-		this.songId = songId;
+	public void setSong(Song song) {
+		this.song = song;
 	}
 }
