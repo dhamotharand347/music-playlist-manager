@@ -13,6 +13,10 @@ public class APIContext {
 	@SerializedName("transactionId") 
 	private String transactionId;
 
+	@Expose 
+	@SerializedName("username") 
+	private String username;
+	
 	public String getApplicationId() {
 		return applicationId;
 	}
@@ -28,7 +32,12 @@ public class APIContext {
 	public void setTransactionId(String transactionId) {
 		this.transactionId = transactionId;
 	}
-	
 
-	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 }

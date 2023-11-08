@@ -30,6 +30,8 @@ public class TransactionIDValues {
 	
 	public static final String VIEW_PLAYLIST = "VIEW_PLAYLIST";
 	
+	public static final String VIEW_PLAYLIST_SONG = "VIEW_PLAYLIST_SONG";
+	
 	public static final String REMOVE_PLAYLIST_SONG = "REMOVE_PLAYLIST_SONG";
 	
 	public static final String SEARCH_SONG = "SEARCH_SONG";
@@ -42,7 +44,7 @@ public class TransactionIDValues {
 	
 	public static final String VIEW_GLOBAL_PLAYLIST = "VIEW_GLOBAL_PLAYLIST";
 	
-	public static final String ADD_COLLABORATOR = "ADD_COLLABORATOR";
+	public static final String SHARE_PLAYLIST = "SHARE_PLAYLIST";
 	
 	public static final String VIEW_LISTENING_HISTORY = "VIEW_LISTENING_HISTORY";
 	

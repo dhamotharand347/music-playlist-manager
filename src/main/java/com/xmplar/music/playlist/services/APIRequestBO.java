@@ -87,6 +87,36 @@ public class APIRequestBO extends BaseAPIResponseHandler {
 		case TransactionIDValues.EDIT_PLAYLIST:
 			return userBO.editPlaylist(apiRequest);
 		
+		case TransactionIDValues.VIEW_PLAYLIST:
+			return userBO.viewPlaylist(apiRequest);
+			
+		case TransactionIDValues.VIEW_PLAYLIST_SONG:
+			return userBO.viewPlaylistSong(apiRequest);
+			
+		case TransactionIDValues.REMOVE_PLAYLIST_SONG:
+			return userBO.removePlaylistSong(apiRequest);
+			
+		case TransactionIDValues.SEARCH_SONG:
+			return userBO.searchSong(apiRequest);
+			
+		case TransactionIDValues.PLAY_SONG:
+			return userBO.playSong(apiRequest);
+		
+		case TransactionIDValues.LIKE_SONG:
+			return userBO.likeSong(apiRequest);
+			
+		case TransactionIDValues.VIEW_LIKED_SONG:
+			return userBO.viewLikedSong(apiRequest);
+		
+		case TransactionIDValues.VIEW_LISTENING_HISTORY:
+			return userBO.viewListeningHistory(apiRequest);
+		
+		case TransactionIDValues.VIEW_GLOBAL_PLAYLIST:
+			return userBO.viewGlobalPlaylist(apiRequest);
+		
+		case TransactionIDValues.SHARE_PLAYLIST:
+			return userBO.sharePlaylist(apiRequest);
+			
 		default:
 			return generateInvalidAPIEndpointErrorResponse(apiRequest);
 		}
